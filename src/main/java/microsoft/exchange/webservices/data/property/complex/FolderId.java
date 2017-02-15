@@ -32,6 +32,7 @@ import microsoft.exchange.webservices.data.core.enumeration.property.WellKnownFo
 import microsoft.exchange.webservices.data.core.exception.service.local.ServiceVersionException;
 import microsoft.exchange.webservices.data.core.exception.service.local.ServiceXmlSerializationException;
 
+import java.util.Locale;
 /**
  * Represents the Id of a folder.
  */
@@ -112,7 +113,7 @@ public final class FolderId extends ServiceId {
       throws ServiceXmlSerializationException {
     if (this.getFolderName() != null) {
       writer.writeAttributeValue(XmlAttributeNames.Id, this
-          .getFolderName().toString().toLowerCase());
+          .getFolderName().toString().toLowerCase(Locale.ENGLISH));
 
       if (this.mailbox != null) {
         try {
